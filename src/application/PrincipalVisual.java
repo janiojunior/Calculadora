@@ -7,13 +7,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
 
-public class Main extends Application {
+public class PrincipalVisual extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("CalculadoraView.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../view/CalculadoraView.fxml"));
 			Scene scene = new Scene(root,401,466);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("../view/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

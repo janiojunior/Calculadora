@@ -1,4 +1,4 @@
-package application;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,31 +59,39 @@ public class CalculadoraController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		calculadora = new Calculadora();
-		tfResultado.setText(calculadora.obterResultado().toString());
+		tfResultado.setText(converteToString(calculadora.obterResultado()));
 	}
-	
+
 	public void inverterSinal() {
 		calculadora.inverterSinal();
-		tfResultado.setText(calculadora.obterResultado().toString());
+		tfResultado.setText(converteToString(calculadora.obterResultado()));
 	}
+
 	public void exponencial() {
 		operacao = 'e';
 	}
+
 	public void dividir() {
 		operacao = 'd';
 	}
+
 	public void multiplicar() {
 		operacao = 'm';
 	}
+
 	public void subtrair() {
 		operacao = 's';
 	}
+
 	public void somar() {
 		operacao = 'a';
 	}
 
 	public void limpar() {
-		tfResultado.setText("0");
+		calculadora.limpar();
+		tfResultado.setText(converteToString(calculadora.obterResultado()));
+		operacao = ' ';
+		valor = null;
 	}
 
 	private void inserirNumero(Integer valor) {
@@ -145,29 +153,36 @@ public class CalculadoraController implements Initializable {
 
 	public void calcularOperacao() {
 		switch (operacao) {
-			case 'e': // Exponencial
-				calculadora.potencia(valor.intValue());
-				break;
-			case 'd': // dividir
-				calculadora.dividir(valor);
-				break;
-			case 'm': // multiplicar
-				calculadora.multiplicar(valor);
-				break;
-			case 's': // subrair
-				calculadora.subtrair(valor);
-				break;
-			case 'a': // somar
-				calculadora.somar(valor);
-				break;
-			default:
-				break;
+		case 'e': // Exponencial
+			calculadora.potencia(valor.intValue());
+			break;
+		case 'd': // dividir
+			calculadora.dividir(valor);
+			break;
+		case 'm': // multiplicar
+			calculadora.multiplicar(valor);
+			break;
+		case 's': // subrair
+			calculadora.subtrair(valor);
+			break;
+		case 'a': // somar
+			calculadora.somar(valor);
+			break;
+		default:
+			break;
 		}
 		// limpando operadores de controle
 		operacao = ' ';
 		valor = null;
 		// atualizando o inputText com o resultado calculado
-		tfResultado.setText(calculadora.obterResultado().toString());
+		tfResultado.setText(converteToString(calculadora.obterResultado()));
+	}
+	
+	private String converteToString(Double valor) {
+		System.out.println(valor);
+		if (valor == null || valor.equals(0d))
+			return "0";
+		return valor.toString();
 	}
 
 }

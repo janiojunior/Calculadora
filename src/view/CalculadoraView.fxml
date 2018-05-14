@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="401.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalculadoraController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="401.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalculadoraController">
    <children>
       <TextField id="tfResultado" fx:id="tfResultado" alignment="CENTER_RIGHT" editable="false" prefHeight="91.0" prefWidth="401.0" style="-fx-border-color: black;" text="0">
          <font>
