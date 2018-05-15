@@ -34,8 +34,17 @@ public class Calculadora {
 	}
 
 	public void potencia(int potencia) {
-		for (int i = 1; i < potencia; i++)
-			resultado = resultado * resultado;
+		// se potencia for negativa .. nao faz nada.
+		if (potencia < 0)
+			return;
+		
+		if (potencia == 0)
+			resultado = 1d;
+		else {
+			double valor = resultado;
+			for (int i = 1; i < potencia; i++)
+				resultado = resultado * valor;
+		}
 	}
 
 	public void limpar() {
